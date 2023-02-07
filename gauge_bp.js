@@ -47,10 +47,7 @@
 		get color() {
 			return this._shadowRoot.getElementById("bps_color").value;
 		}
-		 set myDataSource(dataBinding) {
-      this._myDataSource = dataBinding;
-      this.render();
-    }
+		 
 	}
 
 	customElements.define("com-demo-box-bps", BoxBps);
