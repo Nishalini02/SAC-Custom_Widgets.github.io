@@ -122,28 +122,7 @@ var getScriptPromisify = (src) => {
 			
 			this.render(this.$value, this.$info, this.$color);
 		}
-      set myDataSource(dataBinding) {
-      this._myDataSource = dataBinding;
-      this.render();
-    }
-
-    async render() {
-      await getScriptPromisify(
-        "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
-      );
-
-      if (!this._myDataSource || this._myDataSource.state !== "success") {
-        return;
-      }
-
-      const dimension = this._myDataSource.metadata.feeds.dimensions.values[0];
-      const measure = this._myDataSource.metadata.feeds.measures.values[0];
-      const data = this._myDataSource.data.map((data) => {
-        return {
-          name: data[dimension].label,
-          value: data[measure].raw,
-        };
-      });
+  
 	}
 	
 	customElements.define("com-demo-gauge", Box);
