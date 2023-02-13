@@ -42,6 +42,7 @@
 		
 		<div class="container">
 		  <div class="row">
+		 <div id="root" style="width: 100%; height: 100%;">
 		    <div class="col-md-4 col-sm-4">
 		      <div class="metric participation" data-ratio=".95">
 		        <svg viewBox="0 0 1000 500">
@@ -62,7 +63,7 @@
 			super(); 
 			let shadowRoot = this.attachShadow({mode: "open"});
 			shadowRoot.appendChild(template.content.cloneNode(true));
-			
+			this._root = this._shadowRoot.getElementById("root");
 			this.$style = shadowRoot.querySelector('style');			
 			this.$svg = shadowRoot.querySelector('svg');
 			
@@ -99,7 +100,22 @@
 		onCustomWidgetBeforeUpdate(changedProperties) {
 			this._props = { ...this._props, ...changedProperties };
 		}
+               set myDataSource(dataBinding) {
+               this._myDataSource = dataBinding;
+               this.render();
+	       }
+		if (!this._myDataSource || this._myDataSource.state !== "success") {
+        return;
+      }
 
+      const dimension = this._myDataSource.metadata.feeds.dimensions.values[0];
+      const measure = this._myDataSource.metadata.feeds.measures.values[0];
+      const data = this._myDataSource.data.map((data) => {
+        return {
+          name: data[dimension].label,
+          value: data[measure].raw,
+        };
+      });
 		onCustomWidgetAfterUpdate(changedProperties) {
 			if ("value" in changedProperties) {
 				this.$value = changedProperties["value"];
