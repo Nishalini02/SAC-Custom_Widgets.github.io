@@ -103,58 +103,6 @@ var getScriptPromisify = (src) => {
           value: data[measure].raw,
         };
       });
-      const myChart = echarts.init(this._root, "wight");
-      const option = {
-        title: {
-          text: "ProgressBar",
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b} : {c}%",
-        },
-        toolbox: {
-          feature: {
-            dataView: { readOnly: false },
-            restore: {},
-            saveAsImage: {},
-          },
-        },
-        legend: {
-          data: ["Show", "Click", "Visit", "Inquiry", "Order"],
-        },
-        series: [
-          {
-            name: "ProgressBar",
-            type: "bar",
-            left: "10%",
-            width: "80%",
-            min: 0,
-            max: 100,
-            minSize: "0%",
-            maxSize: "100%",
-            labelLine: {
-              length: 10,
-              lineStyle: {
-                width: 1,
-                type: "solid",
-              },
-            },
-            itemStyle: {
-              borderColor: "#fff",
-              borderWidth: 1,
-            },
-            emphasis: {
-              label: {
-                fontSize: 20,
-              },
-            },
-            data,
-          },
-        ],
-      };
-      myChart.setOption(option);
-    }
-  }
 	
 	customElements.define("com-demo-progressbar", Box);
 })();
