@@ -126,34 +126,13 @@ const myChart = echarts.init(this._root, "wight");
           {
             name: "Bar chart",
             type: "bar",
-            left: "10%",
-            top: 60,
-            bottom: 60,
-            width: "80%",
-            min: 0,
-            max: 100,
-            minSize: "0%",
-            maxSize: "100%",
-            label: {
-              show: true,
-              position: "inside",
-            },
-            labelLine: {
-              length: 10,
-              lineStyle: {
-                width: 1,
-                type: "solid",
-              },
-            },
-            itemStyle: {
-              borderColor: "#fff",
-              borderWidth: 1,
-            },
-            emphasis: {
-              label: {
-                fontSize: 20,
-              },
-            },
+            borderColor: "black",
+	    borderWidth: "1",
+	    borderType:"solid",
+            borderRadius: "4",
+	    shadowBlur:"0",
+            shadowColor:"blue",
+	  },
             data,
           },
         ],
