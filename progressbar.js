@@ -36,7 +36,7 @@ var getScriptPromisify = (src) => {
 		  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		}
 		
-		.metric.participation path.data-progress {
+		.metric.participation path.data-arc {
 		  stroke: #27ae60;
 		}
 		
@@ -46,12 +46,12 @@ var getScriptPromisify = (src) => {
 		</style>
 		
 		<div class="container">
-		  <div class="row">
+		 <div class="row">
 		 <div id="root" style="width: 100%; height: 100%;">
 		    <div class="col-md-4 col-sm-4">
 		      <div class="metric participation" data-ratio=".95">
 		        <svg viewBox="0 0 1000 500">
-			        <path d="M 50 500 L950 500"></path>
+			        <path d="M 950 500 L50 500"></path>
 					<text class='percentage' text-anchor="middle" alignment-baseline="middle" x="500" y="200" font-size="140" font-weight="bold">0%</text>
 					<text class='title' text-anchor="middle" alignment-baseline="middle" x="500" y="350" font-size="90" font-weight="normal"></text>
 					<text class='title' text-anchor="middle" alignment-baseline="middle" x="25" y="485" font-size="20" font-weight="normal">0</text>
@@ -61,7 +61,8 @@ var getScriptPromisify = (src) => {
 		    </div>
 		  </div>
 		</div>
-	`;
+	     </div>
+	;
 
 	class Box extends HTMLElement {
 		constructor() {
