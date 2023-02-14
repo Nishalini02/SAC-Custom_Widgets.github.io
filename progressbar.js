@@ -87,13 +87,13 @@ var getScriptPromisify = (src) => {
                this._myDataSource = dataBinding;
                this.render();
 	       }
-		if (!this._myDataSource || this._myDataSource.state !== "success") {
-               return;
-      }
 		async render() {
       await getScriptPromisify(
         "https://cdn.staticfile.org/echarts/5.0.0/echarts.min.js"
       );
+	if (!this._myDataSource || this._myDataSource.state !== "success") {
+        return;
+      }
 
 
       const dimension = this._myDataSource.metadata.feeds.dimensions.values[0];
