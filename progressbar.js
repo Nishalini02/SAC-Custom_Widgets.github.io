@@ -71,14 +71,15 @@ var getScriptPromisify = (src) => {
 			this.$style = shadowRoot.querySelector('style');			
 			this.$svg = shadowRoot.querySelector('svg');
 			this._root = this._shadowRoot.getElementById("root");
+			this.addEventListener("click", event => {
+				var event = new Event("onClick");
+				this.dispatchEvent(event);
+			});
+			this._props = {};
 			
-			this._props = {};
-			this._props = {};
-
-      this.render();
 		}
 		onCustomWidgetResize(width, height) {
-      this.render();
+                this.render();
     }
 
 		
@@ -87,7 +88,7 @@ var getScriptPromisify = (src) => {
                this.render();
 	       }
 		if (!this._myDataSource || this._myDataSource.state !== "success") {
-        return;
+               return;
       }
 		async render() {
       await getScriptPromisify(
