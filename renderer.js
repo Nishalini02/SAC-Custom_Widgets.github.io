@@ -72,7 +72,7 @@ class Renderer {
     // https://echarts.apache.org/en/option.html
     this._echart.setOption({
       title: {
-        text: 'Sankey Diagram'
+        text: 'Bar Chart'
       },
       tooltip: {
         trigger: 'item',
